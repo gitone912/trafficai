@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Release Side Detection</title>
+    <style>
+        .light {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .red { background-color: red; }
+        .green { background-color: green; }
+    </style>
+</head>
+<body>
+    <h1>Release Side Detection</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="image1">Image 1:</label>
+        <input type="file" name="image1" accept="image/*"><br>
+
+        <label for="image2">Image 2:</label>
+        <input type="file" name="image2" accept="image/*"><br>
+
+        <label for="image3">Image 3:</label>
+        <input type="file" name="image3" accept="image/*"><br>
+
+        <label for="image4">Image 4:</label>
+        <input type="file" name="image4" accept="image/*"><br>
+
+        <input type="submit" value="Detect">
+    </form>
+
+    {% if light_colors %}
+        <h2>Traffic Lights:</h2>
+        <div class="light {{ light_colors.0 }}"></div> Image 1<br>
+        <div class="light {{ light_colors.1 }}"></div> Image 2<br>
+        <div class="light {{ light_colors.2 }}"></div> Image 3<br>
+        <div class="light {{ light_colors.3 }}"></div> Image 4<br>
+    {% endif %}
+</body>
+</html>

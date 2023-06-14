@@ -1,0 +1,19 @@
+<h1>{{ intersection.name }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Traffic Density</th>
+      <th>Vehicle Size</th>
+      <th>Timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in traffic_data %}
+    <tr>
+      <td>{{ data.traffic_density }}</td>
+      <td>{{ data.vehicle_size }}</td>
+      <td>{{ data.timestamp }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
